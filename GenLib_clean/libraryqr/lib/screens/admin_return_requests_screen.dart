@@ -57,6 +57,8 @@ class AdminReturnRequestsScreen extends StatelessWidget {
           final currentCount = bookSnap.get('count') ?? 0;
           final userId = requestSnap.get('userId');
           final now = Timestamp.now();
+          final userRef = firestore.collection('users').doc(userId);
+          final userSnap = await txn.get(userRef);
 
           txn.update(bookRef, {
             'count': currentCount + 1,
@@ -71,8 +73,6 @@ class AdminReturnRequestsScreen extends StatelessWidget {
             'isPaid': true,
           });
 
-          final userRef = firestore.collection('users').doc(userId);
-          final userSnap = await txn.get(userRef);
           if (userSnap.exists) {
             int currentNob = userSnap.data()?['nob'] ?? 0;
             if (currentNob > 0) {
