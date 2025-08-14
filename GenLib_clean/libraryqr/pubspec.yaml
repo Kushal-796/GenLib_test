@@ -36,9 +36,6 @@ dependencies:
   slide_to_act: ^2.0.0
   image_picker: ^1.0.5
   #  webview_flutter: ^4.0.7
-#  google_sign_in: ^6.2.1
-  cloud_functions: ^4.7.2 # Or latest version
-  uuid: ^4.4.0 # Or latest version
   firebase_storage: ^11.6.6
   firebase_auth: ^4.20.0
   cloud_firestore: ^4.9.2
